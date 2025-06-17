@@ -1,79 +1,69 @@
-TASK2:
+TASK 1:
 
-import java.io.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-public class SimpleBufferedReader {
+public class SimpleStudentList {
     public static void main(String[] args) {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("example.txt"));
-            String line;
+        ArrayList<String> students = new ArrayList<>();
 
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
+        students.add("Alice");
+        students.add("Bob");
+        students.add("Charlie");
 
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("Error reading the file.");
+         Iterator<String>  terator = students.iterator();
+        System.out.println("Student Names:");
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
     }
 }
 
-TASK3:
 
-import java.io.FileWriter;
-import java.io.IOException;
+TASK 2:
 
-public class SimpleFileWrite {
+import java.util.HashSet;
+
+public class UniqueEmail {
     public static void main(String[] args) {
-        try {
-            FileWriter writer = new FileWriter("output.txt");
+                HashSet<String> emailSet = new HashSet<>();
 
-            writer.write("First line\n");
-            writer.write("Second line\n");
-            writer.write("Third line\n");
-
-            writer.close();
-            System.out.println("Successfully wrote to the file.");
-
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+                emailSet.add("shanju@gmail.com");
+        emailSet.add("nagaraj@gmail.com");
+        emailSet.add("menaka@gmail.com");
+        emailSet.add("harshit@gmail.com"); 
+               System.out.println("Unique Email Addresses:");
+        for (String email : emailSet) {
+            System.out.println(email);
         }
     }
 }
 
-MAIN PROGRAM:
+TASK 3:
 
-import java.io.*;
+import java.util.HashMap;
 
-public class SimpleResultProcessing {
+public class SimpleAverage {
     public static void main(String[] args) {
-        try (BufferedReader reader = new BufferedReader(new FileReader("marks.txt"));
-             BufferedWriter writer = new BufferedWriter(new FileWriter("result.txt"))) {
+        HashMap<String, Integer> marks = new HashMap<>();
 
-            writer.write("Name Total");
-            writer.newLine();
+        marks.put("John", 80);
+        marks.put("Emma", 90);
+        marks.put("Alex", 70);
 
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(" ");
-                String name = parts[0];
-                int total = 0;
-
-                for (int i = 1; i < parts.length; i++) {
-                    total += Integer.parseInt(parts[i]);
-                }
-
-                writer.write(name + " " + total);
-                writer.newLine();
-            }
-
-            System.out.println("Result written successfully.");
-
-        } catch (IOException e) {
-            System.out.println("Error occurred.");
+        int total = 0;
+        for (int m : marks.values()) {
+            total += m;
         }
+
+        double average = total / (double) marks.size();
+
+    for (String name : marks.keySet()) {
+            System.out.println(name + ": " + marks.get(name));
+        }
+    
+    
+ System.out.println("Average Marks: " + average);
     }
 }
 
