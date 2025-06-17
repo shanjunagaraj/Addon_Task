@@ -1,57 +1,137 @@
-import java.util.Scanner;
+class BankAccount {
+    private double balance;
 
-public class ReverseArray {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    // Constructor
+    public BankAccount(double balance) {
+        this.balance = balance;
+    }
 
-       
-        System.out.print("Enter number of elements: ");
-        int n = scanner.nextInt();
-
-        int[] numbers = new int[n];
-
-       
-        System.out.println("Enter the numbers:");
-        for (int i = 0; i < n; i++) {
-            numbers[i] = scanner.nextInt();
+    // Deposit method
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Deposit amount must be positive.");
         }
+    }
 
-       
-        System.out.println("Reversed array:");
-        for (int i = n - 1; i >= 0; i--) {
-            System.out.print(numbers[i] + " ");
+    // Withdraw method
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount);
+        } else {
+            System.out.println("Insufficient balance or invalid amount.");
         }
+    }
 
-        scanner.close();
+    // Get balance method
+    public double getBalance() {
+        return balance;
     }
 }
 
-task 2
-
-class Main {
+public class Main {
     public static void main(String[] args) {
-        String name = "manut";
-        int n= name.length();
-        int count= 0;
-        int count1=0;
-        for(int i=0;i<n;i++){
-            System.out.println(name.charAt(i));
-            if(name.charAt(i)=='a' || name.charAt(i)=='i' || name.charAt(i)=='e' || name.charAt(i)=='o' || name.charAt(i)=='u')
-                count++;
-       
-           else if(name.charAt(i)>='a'&& name.charAt(i)<='z') {
-               count1++;
-           
-               
-           }
-               
-        }
-       
-        System.out.println(count);
-        System.out.println(count1);
-       
-               
-               
-                }
+        BankAccount account = new BankAccount(1000);
+        account.deposit(500);
+        account.withdraw(200);
+        System.out.println("Current Balance: " + account.getBalance());
+    }
 }
-               
+
+
+TASK 2
+
+
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+class Employee extends Person {
+    private double salary;
+
+    public Employee(String name, int age, double salary) {
+        super(name, age);
+        this.salary = salary;
+    }
+
+    public void calculateSalary() {
+        System.out.println("Salary: " + salary);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Employee emp = new Employee("Vikram", 27, 50000);
+        emp.displayInfo();
+        emp.calculateSalary();
+    }
+}
+
+
+TASK 3
+
+
+public class Task {
+
+   
+    public int sum(int a, int b) {
+        return a + b;
+    }
+
+    
+    public double sum(double a, double b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        Task obj = new Task();
+
+        System.out.println(obj.sum(5, 5));       // calls sum(int, int)
+        System.out.println(obj.sum(4.5, 3.5));   // calls sum(double, double)
+    }
+}
+
+
+TASK 4
+
+class Student {
+    private String name;
+    private int marks;
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    public void assignMarks(int marks) {
+        this.marks = marks;
+    }
+
+    public void displayResults() {
+        System.out.println("Student: " + name + ", Marks: " + marks);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student1 = new Student("Arjun");
+        student1.assignMarks(85);
+        student1.displayResults();
+
+        Student student2 = new Student("Akshaya");
+        student2.assignMarks(92);
+        student2.displayResults();
+    }
+}
