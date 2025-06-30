@@ -1,5 +1,5 @@
-//Task 1: Join students and marks
-//Create students and marks tables
+-- Task 1: Join students and marks
+-- Create students and marks tables
 
 CREATE DATABASE studentdb;
 USE studentdb;
@@ -17,13 +17,13 @@ CREATE TABLE marks (
     FOREIGN KEY (student_id) REFERENCES students(id)
 );
 
-//Query
+-- Query
 
 SELECT s.id, s.name, m.subject, m.mark
 FROM students s
 JOIN marks m ON s.id = m.student_id;
 
-//JDBC implementation
+-- JDBC implementation
 
 import java.sql.*;
 
@@ -48,8 +48,8 @@ public class StudentMarksJoin {
 }
 
 
-//Task 2: Sub-query to find top performer
-//Query
+-- Task 2: Sub-query to find top performer
+-- Query
 
 SELECT name FROM students
 WHERE id = (
@@ -59,7 +59,7 @@ WHERE id = (
     LIMIT 1
 );
 
-//JDBC implementation
+-- JDBC implementation
 
 import java.sql.*;
 
@@ -80,14 +80,14 @@ public class TopPerformer {
     }
 }
 
-// Task 3: Join orders and customers
-// Query
+ -- Task 3: Join orders and customers
+ -- Query
 
 SELECT c.id, c.name, o.product, o.amount
 FROM customers c
 JOIN orders o ON c.id = o.customer_id;
 
-//JDBC implementation
+-- DBC implementation
 
 import java.sql.*;
 
@@ -111,7 +111,7 @@ public class OrdersCustomersJoin {
     }
 }
 
-//Task 4: Multi-table query app with filters
+-- Task 4: Multi-table query app with filters
 
 import java.sql.*;
 import java.util.Scanner;
