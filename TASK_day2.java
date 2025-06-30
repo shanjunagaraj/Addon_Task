@@ -1,4 +1,4 @@
-TASK 1:
+// TASK 1:
 
 import java.util.Scanner;
 
@@ -26,7 +26,7 @@ public class ReverseArray {
 }
 
 
-TASK 2:
+// TASK 2:
 
 
 String name="Shanjitha";
@@ -50,7 +50,7 @@ String name="Shanjitha";
 }
 
 
-TASK 3:
+// TASK 3:
 
 class Main {
     public static void main(String[] args) {
@@ -60,3 +60,43 @@ class Main {
     }
 }
 
+// TASK 4:
+
+import java.util.Scanner;
+
+public class StringAnalyzer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        // Word Count
+        String[] words = input.trim().split("\\s+");
+        int wordCount = words.length;
+
+        // Character Count (excluding spaces)
+        int charCount = input.replaceAll("\\s+", "").length();
+
+        // Reverse the String
+        String reversed = new StringBuilder(input).reverse().toString();
+
+        // Longest Word
+        String longestWord = "";
+        for (String word : words) {
+            if (word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+
+        // Output
+        System.out.println("\n--- String Analysis ---");
+        System.out.println("Word Count: " + wordCount);
+        System.out.println("Character Count (excluding spaces): " + charCount);
+        System.out.println("Reversed String: " + reversed);
+        System.out.println("Longest Word: " + longestWord);
+
+        scanner.close();
+    }
+}
