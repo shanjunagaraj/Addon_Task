@@ -16,7 +16,7 @@ CREATE TABLE course (
     fee DECIMAL(10,2)
 );
 
-//✅ Task 2: Insert 5 records in each table
+//Task 2: Insert 5 records in each table
 //Insert into student
 
 INSERT INTO student (name, age) VALUES
