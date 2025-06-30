@@ -1,3 +1,5 @@
+// TASK1:
+
 class BankAccount {
     private double balance;
 
@@ -42,7 +44,7 @@ public class Main {
 }
 
 
-TASK 2
+//TASK 2:
 
 
 class Person {
@@ -104,8 +106,33 @@ public class Task {
     }
 }
 
+//TASK 3:
 
-TASK 4
+public class OverloadingDemo {
+    // sum method for integers
+    public int sum(int a, int b) {
+        return a + b;
+    }
+
+    // sum method for doubles
+    public double sum(double a, double b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        OverloadingDemo obj = new OverloadingDemo();
+
+        // Calling sum(int, int)
+        int intResult = obj.sum(10, 20);
+        System.out.println("Sum of integers: " + intResult);
+
+        // Calling sum(double, double)
+        double doubleResult = obj.sum(15.5, 24.5);
+        System.out.println("Sum of doubles: " + doubleResult);
+    }
+}
+
+//TASK 4
 
 class Student {
     private String name;
