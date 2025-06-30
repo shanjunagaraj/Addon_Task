@@ -1,4 +1,4 @@
-TASK 1:
+//TASK 1:
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,8 +19,7 @@ public class SimpleStudentList {
     }
 }
 
-
-TASK 2:
+//TASK 2:
 
 import java.util.HashSet;
 
@@ -39,7 +38,7 @@ public class UniqueEmail {
     }
 }
 
-TASK 3:
+//TASK 3:
 
 import java.util.HashMap;
 
@@ -66,4 +65,93 @@ public class SimpleAverage {
  System.out.println("Average Marks: " + average);
     }
 }
+
+//TASK 4:
+
+import java.util.*;
+
+public class StudentCourseManager {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // ArrayList for student names
+        ArrayList<String> students = new ArrayList<>();
+
+        // HashMap to store student name and their courses (List)
+        HashMap<String, ArrayList<String>> studentCourses = new HashMap<>();
+
+        int choice;
+        do {
+            System.out.println("\n--- Student Course Manager ---");
+            System.out.println("1. Add Student");
+            System.out.println("2. Add Course to Student");
+            System.out.println("3. Remove Student");
+            System.out.println("4. Display All Students and Courses");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+            sc.nextLine(); // consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter student name: ");
+                    String studentName = sc.nextLine();
+                    students.add(studentName);
+                    studentCourses.put(studentName, new ArrayList<>());
+                    System.out.println("Student added.");
+                    break;
+
+                case 2:
+                    System.out.print("Enter student name: ");
+                    String sName = sc.nextLine();
+                    if (studentCourses.containsKey(sName)) {
+                        System.out.print("Enter course name to add: ");
+                        String courseName = sc.nextLine();
+                        studentCourses.get(sName).add(courseName);
+                        System.out.println("Course added to " + sName);
+                    } else {
+                        System.out.println("Student not found.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter student name to remove: ");
+                    String removeName = sc.nextLine();
+                    if (students.remove(removeName)) {
+                        studentCourses.remove(removeName);
+                        System.out.println("Student removed.");
+                    } else {
+                        System.out.println("Student not found.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("--- All Students and Their Courses ---");
+                    Iterator<String> studentIterator = students.iterator();
+                    while (studentIterator.hasNext()) {
+                        String name = studentIterator.next();
+                        System.out.print("Student: " + name + " | Courses: ");
+                        ArrayList<String> courses = studentCourses.get(name);
+                        Iterator<String> courseIterator = courses.iterator();
+                        while (courseIterator.hasNext()) {
+                            System.out.print(courseIterator.next());
+                            if (courseIterator.hasNext()) System.out.print(", ");
+                        }
+                        System.out.println();
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        } while (choice != 5);
+
+        sc.close();
+    }
+}
+
 
