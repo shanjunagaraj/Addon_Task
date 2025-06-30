@@ -1,4 +1,4 @@
-//TASk : 1
+-- //TASk : 1
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +26,7 @@ public class DatabaseConnection {
 }
 
 
-//TASK : 1
+-- //TASK : 2
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,7 +52,7 @@ public class InsertStudent {
 }
 
 
-//TASK :3
+-- //TASK :3
 
 
 import java.sql.Connection;
@@ -89,7 +89,7 @@ public class DisplayStudents {
     }
 }
 
-//TASK :4 (Main program)
+-- //TASK :4 (Main program)
 
 import java.sql.*;
 import java.util.Scanner;
